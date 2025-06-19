@@ -65,7 +65,44 @@
                     }
                 }
             }
+        // Feedback to user
+            if (guess != secret)
+            {
+                Console.WriteLine($"Guess #{guessCount}: {guess}");
+                Console.WriteLine($"{correctPosition} letter(s) in correct position.");
+                Console.WriteLine($"{correctLetterWrongPlace} correct letter(s) in wrong position.\n");
+            }
 
+        } while (guess != secret);
+
+        // Win message
+        Console.WriteLine($"\nCongratulations! You guessed the secret '{secret}' in {guessCount} guesses.");
+    }
+
+    // Check if all letters are between 'a' and 'g'
+    static bool AllLettersValid(string guess)
+    {
+        foreach (char c in guess)
+        {
+            if (c < 'a' || c > 'g')
+                return false;
+        }
+        return true;
+    }
+
+    // Check for duplicate letters
+    static bool HasDuplicates(string guess)
+    {
+        for (int i = 0; i < guess.Length; i++)
+        {
+            for (int j = i + 1; j < guess.Length; j++)
+            {
+                if (guess[i] == guess[j])
+                    return true;
+            }
+        }
+    return false;
+    }
             
             
 
