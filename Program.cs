@@ -39,7 +39,34 @@
                 Console.WriteLine("No repeated letters allowed.");
                 continue;
             }
+        // Count correct positions
+            int correctPosition = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                if (guess[i] == secret[i])
+                {
+                    correctPosition++;
+                }
+            }
 
+            // Count correct letters in wrong positions
+            int correctLetterWrongPlace = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                if (guess[i] != secret[i])
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        if (i != j && guess[i] == secret[j])
+                        {
+                            correctLetterWrongPlace++;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            
             
 
 
