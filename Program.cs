@@ -10,5 +10,43 @@
         Console.WriteLine("You'll be told how many letters are correct and in the right place,");
         Console.WriteLine("and how many letters are correct but in the wrong place.");
         Console.WriteLine();
+        string secret = "afdb"; // Hard-coded secret
+        int guessCount = 0;
+        string guess;
 
+        do
+        {
+            // Ask for guess
+            Console.Write("Enter your 4-letter guess (a-g, no repeats): ");
+            guess = Console.ReadLine()!.ToLower();
+            guessCount++;
+
+            // Input validation
+            if (guess.Length != 4)
+            {
+                Console.WriteLine("Your guess must be exactly 4 letters.");
+                continue;
+            }
+
+            if (!AllLettersValid(guess))
+            {
+                Console.WriteLine("Only use letters from 'a' to 'g'.");
+                continue;
+            }
+
+            if (HasDuplicates(guess))
+            {
+                Console.WriteLine("No repeated letters allowed.");
+                continue;
+            }
+
+            
+
+
+
+
+
+
+    
+        
         
